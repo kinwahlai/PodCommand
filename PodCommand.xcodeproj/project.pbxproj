@@ -1,0 +1,278 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		07525E5A1740871F001310B0 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07525E591740871F001310B0 /* AppKit.framework */; };
+		07525E5C1740871F001310B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07525E5B1740871F001310B0 /* Foundation.framework */; };
+		07525E621740871F001310B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07525E601740871F001310B0 /* InfoPlist.strings */; };
+		07525E651740871F001310B0 /* PodCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 07525E641740871F001310B0 /* PodCommand.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		07525E561740871F001310B0 /* PodCommand.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodCommand.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
+		07525E591740871F001310B0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		07525E5B1740871F001310B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		07525E5F1740871F001310B0 /* PodCommand-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PodCommand-Info.plist"; sourceTree = "<group>"; };
+		07525E611740871F001310B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		07525E631740871F001310B0 /* PodCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PodCommand.h; sourceTree = "<group>"; };
+		07525E641740871F001310B0 /* PodCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PodCommand.m; sourceTree = "<group>"; };
+		07525E661740871F001310B0 /* PodCommand-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PodCommand-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		07525E531740871F001310B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07525E5A1740871F001310B0 /* AppKit.framework in Frameworks */,
+				07525E5C1740871F001310B0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		07525E4D1740871F001310B0 = {
+			isa = PBXGroup;
+			children = (
+				07525E5D1740871F001310B0 /* PodCommand */,
+				07525E581740871F001310B0 /* Frameworks */,
+				07525E571740871F001310B0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		07525E571740871F001310B0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				07525E561740871F001310B0 /* PodCommand.xcplugin */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		07525E581740871F001310B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07525E591740871F001310B0 /* AppKit.framework */,
+				07525E5B1740871F001310B0 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		07525E5D1740871F001310B0 /* PodCommand */ = {
+			isa = PBXGroup;
+			children = (
+				07525E631740871F001310B0 /* PodCommand.h */,
+				07525E641740871F001310B0 /* PodCommand.m */,
+				07525E5E1740871F001310B0 /* Supporting Files */,
+			);
+			path = PodCommand;
+			sourceTree = "<group>";
+		};
+		07525E5E1740871F001310B0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				07525E5F1740871F001310B0 /* PodCommand-Info.plist */,
+				07525E601740871F001310B0 /* InfoPlist.strings */,
+				07525E661740871F001310B0 /* PodCommand-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		07525E551740871F001310B0 /* PodCommand */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 07525E691740871F001310B0 /* Build configuration list for PBXNativeTarget "PodCommand" */;
+			buildPhases = (
+				07525E521740871F001310B0 /* Sources */,
+				07525E531740871F001310B0 /* Frameworks */,
+				07525E541740871F001310B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PodCommand;
+			productName = PodCommand;
+			productReference = 07525E561740871F001310B0 /* PodCommand.xcplugin */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		07525E4E1740871F001310B0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = kinwah;
+			};
+			buildConfigurationList = 07525E511740871F001310B0 /* Build configuration list for PBXProject "PodCommand" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 07525E4D1740871F001310B0;
+			productRefGroup = 07525E571740871F001310B0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				07525E551740871F001310B0 /* PodCommand */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		07525E541740871F001310B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07525E621740871F001310B0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		07525E521740871F001310B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				07525E651740871F001310B0 /* PodCommand.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		07525E601740871F001310B0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				07525E611740871F001310B0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		07525E671740871F001310B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		07525E681740871F001310B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		07525E6A1740871F001310B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PodCommand/PodCommand-Prefix.pch";
+				INFOPLIST_FILE = "PodCommand/PodCommand-Info.plist";
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Debug;
+		};
+		07525E6B1740871F001310B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEPLOYMENT_LOCATION = YES;
+				DSTROOT = "$(HOME)";
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PodCommand/PodCommand-Prefix.pch";
+				INFOPLIST_FILE = "PodCommand/PodCommand-Info.plist";
+				INSTALL_PATH = "/Library/Application Support/Developer/Shared/Xcode/Plug-ins";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xcplugin;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		07525E511740871F001310B0 /* Build configuration list for PBXProject "PodCommand" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07525E671740871F001310B0 /* Debug */,
+				07525E681740871F001310B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		07525E691740871F001310B0 /* Build configuration list for PBXNativeTarget "PodCommand" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				07525E6A1740871F001310B0 /* Debug */,
+				07525E6B1740871F001310B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 07525E4E1740871F001310B0 /* Project object */;
+}
