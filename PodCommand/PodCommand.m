@@ -29,10 +29,25 @@
         NSMenuItem *viewMenuItem = [[NSApp mainMenu] itemWithTitle:@"File"];
         if (viewMenuItem) {
             [[viewMenuItem submenu] addItem:[NSMenuItem separatorItem]];
-            NSMenuItem *sample = [[NSMenuItem alloc] initWithTitle:@"Do Action" action:@selector(doMenuAction) keyEquivalent:@""];
-            [sample setTarget:self];
-            [[viewMenuItem submenu] addItem:sample];
-            [sample release];
+            NSMenu *podCommandSubMenu = [[NSMenu alloc]initWithTitle:@"aaaa"];
+            
+            NSMenuItem *podCommand = [[NSMenuItem alloc] initWithTitle:@"Pod Command" action:nil keyEquivalent:@""];
+            
+            NSMenuItem *initPod = [[NSMenuItem alloc] initWithTitle:@"Init Pod" action:@selector(doMenuAction) keyEquivalent:@""];
+            NSMenuItem *updatePod = [[NSMenuItem alloc] initWithTitle:@"Update Pod" action:@selector(doMenuAction) keyEquivalent:@""];
+            [initPod setTarget:self];
+            [updatePod setTarget:self];
+            
+            [podCommandSubMenu addItem:initPod];
+            [podCommandSubMenu addItem:updatePod];
+            
+            [[viewMenuItem submenu ] addItem:podCommand];
+            
+            [[viewMenuItem submenu ] setSubmenu:podCommandSubMenu forItem:podCommand];
+            
+            [initPod release];
+            [updatePod release];
+            [podCommand release];
         }
     }
     return self;
