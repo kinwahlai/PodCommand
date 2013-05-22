@@ -13,6 +13,7 @@
 		07525E5C1740871F001310B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07525E5B1740871F001310B0 /* Foundation.framework */; };
 		07525E621740871F001310B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07525E601740871F001310B0 /* InfoPlist.strings */; };
 		07525E651740871F001310B0 /* PodCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 07525E641740871F001310B0 /* PodCommand.m */; };
+		07DA931B174CD7100010D94D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 07DA931A174CD7100010D94D /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		07525E631740871F001310B0 /* PodCommand.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PodCommand.h; sourceTree = "<group>"; };
 		07525E641740871F001310B0 /* PodCommand.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PodCommand.m; sourceTree = "<group>"; };
 		07525E661740871F001310B0 /* PodCommand-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PodCommand-Prefix.pch"; sourceTree = "<group>"; };
+		07DA931A174CD7100010D94D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		07525E4D1740871F001310B0 = {
 			isa = PBXGroup;
 			children = (
+				07DA931A174CD7100010D94D /* README.md */,
 				07525E5D1740871F001310B0 /* PodCommand */,
 				07525E581740871F001310B0 /* Frameworks */,
 				07525E571740871F001310B0 /* Products */,
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07525E621740871F001310B0 /* InfoPlist.strings in Resources */,
+				07DA931B174CD7100010D94D /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
