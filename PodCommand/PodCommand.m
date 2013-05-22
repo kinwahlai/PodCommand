@@ -28,8 +28,7 @@ static NSString *const UPDATE = @"update";
 
 @interface PodCommand ()
 {
-    NSURL *_podFilePath;
-    NSURL *_podFileLockPath;
+
 }
 - (NSURL *)projectRoot;
 @end
@@ -84,8 +83,8 @@ static NSString *const UPDATE = @"update";
 - (BOOL)shouldEnable:(NSMenuItem *)menuItem
 {
     if (self.projectRoot) {
-        _podFilePath= [self.projectRoot URLByAppendingPathComponent:PODFILE];
-        _podFileLockPath= [self.projectRoot URLByAppendingPathComponent:PODFILELOCK];
+        NSURL *_podFilePath= [self.projectRoot URLByAppendingPathComponent:PODFILE];
+        NSURL *_podFileLockPath= [self.projectRoot URLByAppendingPathComponent:PODFILELOCK];
         NSError *error;
         BOOL toolAvailable = [ATZShell areCommandLineToolsAvailableFor:POD];
         BOOL podFileExists = [_podFilePath checkResourceIsReachableAndReturnError:&error];
@@ -95,6 +94,8 @@ static NSString *const UPDATE = @"update";
         } else {
             return podFileExists && podFileLockExists && toolAvailable;
         }
+        [_podFileLockPath release];
+        [_podFilePath release];
     }
     return NO;
 }
@@ -112,7 +113,6 @@ static NSString *const UPDATE = @"update";
 - (void)performInitPod:(id)sender
 {
     ATZShell *shell = [ATZShell new];
-    
     [shell executeCommand:POD withArguments:@[INSTALL] inWorkingDirectory:[self.projectRoot path]completion:^(NSString *output, NSError *error) {
         if (error) {
             NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"%@",[error localizedDescription]] defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
@@ -121,6 +121,7 @@ static NSString *const UPDATE = @"update";
             NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"Pod install completed"] defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"Please close the project and start using the workspace"];
             [alert runModal];
         }
+        [shell release];
     }];
 
 }
@@ -128,7 +129,6 @@ static NSString *const UPDATE = @"update";
 - (void)performUpdatePod:(id)sender
 {
     ATZShell *shell = [ATZShell new];
-
     [shell executeCommand:POD withArguments:@[UPDATE] inWorkingDirectory:[self.projectRoot path]completion:^(NSString *output, NSError *error) {
         if (error) {
             NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"%@",[error localizedDescription]] defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
@@ -137,6 +137,7 @@ static NSString *const UPDATE = @"update";
             NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"Pod update completed"] defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
             [alert runModal];
         }
+        [shell release];
     }];
 }
 
