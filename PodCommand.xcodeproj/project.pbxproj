@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		07338944174CC4E900F90181 /* ATZShell.m in Sources */ = {isa = PBXBuildFile; fileRef = 07338943174CC4E900F90181 /* ATZShell.m */; };
+		07338947174CC62200F90181 /* ATZShell+PodCommandToolCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 07338946174CC62200F90181 /* ATZShell+PodCommandToolCheck.m */; };
 		07525E5A1740871F001310B0 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07525E591740871F001310B0 /* AppKit.framework */; };
 		07525E5C1740871F001310B0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07525E5B1740871F001310B0 /* Foundation.framework */; };
 		07525E621740871F001310B0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 07525E601740871F001310B0 /* InfoPlist.strings */; };
@@ -14,6 +16,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		07338942174CC4E900F90181 /* ATZShell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATZShell.h; sourceTree = "<group>"; };
+		07338943174CC4E900F90181 /* ATZShell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATZShell.m; sourceTree = "<group>"; };
+		07338945174CC62200F90181 /* ATZShell+PodCommandToolCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ATZShell+PodCommandToolCheck.h"; sourceTree = "<group>"; };
+		07338946174CC62200F90181 /* ATZShell+PodCommandToolCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ATZShell+PodCommandToolCheck.m"; sourceTree = "<group>"; };
 		07525E561740871F001310B0 /* PodCommand.xcplugin */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PodCommand.xcplugin; sourceTree = BUILT_PRODUCTS_DIR; };
 		07525E591740871F001310B0 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		07525E5B1740871F001310B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -37,6 +43,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07338941174CC4E900F90181 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				07338942174CC4E900F90181 /* ATZShell.h */,
+				07338943174CC4E900F90181 /* ATZShell.m */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
 		07525E4D1740871F001310B0 = {
 			isa = PBXGroup;
 			children = (
@@ -66,9 +81,12 @@
 		07525E5D1740871F001310B0 /* PodCommand */ = {
 			isa = PBXGroup;
 			children = (
+				07338941174CC4E900F90181 /* Vendor */,
 				07525E631740871F001310B0 /* PodCommand.h */,
 				07525E641740871F001310B0 /* PodCommand.m */,
 				07525E5E1740871F001310B0 /* Supporting Files */,
+				07338945174CC62200F90181 /* ATZShell+PodCommandToolCheck.h */,
+				07338946174CC62200F90181 /* ATZShell+PodCommandToolCheck.m */,
 			);
 			path = PodCommand;
 			sourceTree = "<group>";
@@ -146,6 +164,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				07525E651740871F001310B0 /* PodCommand.m in Sources */,
+				07338944174CC4E900F90181 /* ATZShell.m in Sources */,
+				07338947174CC62200F90181 /* ATZShell+PodCommandToolCheck.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +291,7 @@
 				07525E6B1740871F001310B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,6 +7,17 @@
 //
 
 #import "PodCommand.h"
+#import "ATZShell+PodCommandToolCheck.h"
+#import "ATZShell.h"
+
+static NSString *const POD = @"/usr/bin/pod";
+static NSString *const PODCOMMAND = @"Pod Command";
+static NSString *const INITPOD = @"Init Pod";
+static NSString *const UPDATEPOD = @"Update Pod";
+static NSString *const PODFILE = @"Podfile";
+static NSString *const PODFILELOCK = @"Podfile.lock";
+static NSString *const INSTALL = @"install";
+static NSString *const UPDATE = @"update";
 
 @class IDEWorkspaceWindowController;
 
@@ -46,11 +57,11 @@
             [[viewMenuItem submenu] addItem:[NSMenuItem separatorItem]];
             NSMenu *podCommandSubMenu = [[NSMenu alloc]initWithTitle:@""];
             
-            NSMenuItem *podCommand = [[NSMenuItem alloc] initWithTitle:@"Pod Command" action:nil keyEquivalent:@""];
+            NSMenuItem *podCommand = [[NSMenuItem alloc] initWithTitle:PODCOMMAND action:nil keyEquivalent:@""];
             
-            NSMenuItem *initPod = [[NSMenuItem alloc] initWithTitle:@"Init Pod" action:@selector(doMenuAction) keyEquivalent:@""];
+            NSMenuItem *initPod = [[NSMenuItem alloc] initWithTitle:INITPOD action:@selector(performInitPod:) keyEquivalent:@""];
             [initPod setState:NSOffState];
-            NSMenuItem *updatePod = [[NSMenuItem alloc] initWithTitle:@"Update Pod" action:@selector(doMenuAction) keyEquivalent:@""];
+            NSMenuItem *updatePod = [[NSMenuItem alloc] initWithTitle:UPDATEPOD action:@selector(performUpdatePod:) keyEquivalent:@""];
             [updatePod setState:NSOffState];
             [initPod setTarget:self];
             [updatePod setTarget:self];
@@ -70,31 +81,63 @@
     return self;
 }
 
+- (BOOL)shouldEnable:(NSMenuItem *)menuItem
+{
+    if (self.projectRoot) {
+        _podFilePath= [self.projectRoot URLByAppendingPathComponent:PODFILE];
+        _podFileLockPath= [self.projectRoot URLByAppendingPathComponent:PODFILELOCK];
+        NSError *error;
+        BOOL toolAvailable = [ATZShell areCommandLineToolsAvailableFor:POD];
+        BOOL podFileExists = [_podFilePath checkResourceIsReachableAndReturnError:&error];
+        BOOL podFileLockExists = [_podFileLockPath checkResourceIsReachableAndReturnError:&error];
+        if ([[menuItem title] isEqualToString:INITPOD]) {
+            return podFileExists && !podFileLockExists && toolAvailable;
+        } else {
+            return podFileExists && podFileLockExists && toolAvailable;
+        }
+    }
+    return NO;
+}
+
 - (BOOL)validateMenuItem:(NSMenuItem *)menuItem
 {
-	if ([menuItem action] == @selector(doMenuAction)) {
-        if (self.projectRoot) {
-            _podFilePath= [self.projectRoot URLByAppendingPathComponent:@"Podfile"];
-            _podFileLockPath= [self.projectRoot URLByAppendingPathComponent:@"Podfile.lock"];
-            NSError *error;
-            BOOL podFileExists = [_podFilePath checkResourceIsReachableAndReturnError:&error];
-            BOOL podFileLockExists = [_podFileLockPath checkResourceIsReachableAndReturnError:&error];
-            if ([[menuItem title] isEqualToString:@"Init Pod"]) {
-                return podFileExists && !podFileLockExists;
-            } else {
-                return podFileExists && podFileLockExists;
-            }
-        }
-		return NO;
-	}
-	return YES;
+    if (menuItem.parentItem && [menuItem.parentItem.title isEqualToString:PODCOMMAND]) {
+        return [self shouldEnable:menuItem];
+    }
+	
+	return NO;
 }
 
 // Sample Action, for menu item:
-- (void)doMenuAction
+- (void)performInitPod:(id)sender
 {
-    NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"Hello, %@",self.projectRoot] defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
-    [alert runModal];
+    ATZShell *shell = [ATZShell new];
+    
+    [shell executeCommand:POD withArguments:@[INSTALL] inWorkingDirectory:[self.projectRoot path]completion:^(NSString *output, NSError *error) {
+        if (error) {
+            NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"%@",[error localizedDescription]] defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
+            [alert runModal];
+        } else {
+            NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"Pod install completed"] defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@"Please close the project and start using the workspace"];
+            [alert runModal];
+        }
+    }];
+
+}
+
+- (void)performUpdatePod:(id)sender
+{
+    ATZShell *shell = [ATZShell new];
+
+    [shell executeCommand:POD withArguments:@[UPDATE] inWorkingDirectory:[self.projectRoot path]completion:^(NSString *output, NSError *error) {
+        if (error) {
+            NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"%@",[error localizedDescription]] defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
+            [alert runModal];
+        } else {
+            NSAlert *alert = [NSAlert alertWithMessageText:[NSString stringWithFormat:@"Pod update completed"] defaultButton:nil alternateButton:nil otherButton:nil informativeTextWithFormat:@""];
+            [alert runModal];
+        }
+    }];
 }
 
 - (void)dealloc
